@@ -6,8 +6,11 @@ package exercise1;
  * To be used as starting code in Exercise
  *
  * @author dancye
- * @author Paul Bonenfant Jan 25, 2022 
+ * @author Paul Bonenfant Jan 25, 2022
+ * @author Jingwen Huang May 23, 2023
  */
+import java.util.Random;
+import java.util.Scanner;
 public class CardTrick {
     
     public static void main(String[] args) {
@@ -16,15 +19,30 @@ public class CardTrick {
 
         for (int i = 0; i < hand.length; i++) {
             Card card = new Card();
+            Random random1 = new Random();
             //card.setValue(insert call to random number generator here)
-            // 
+            card.setValue(random1.nextInt(13)+1);
             //card.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+            card.setSuit(Card.SUITS[random1.nextInt(4)]);
             // Hint: You can use Random -> random.nextInt(n) to get a random number between 0 and n-1 (inclusive)
             //       Don't worry about duplicates at this point
         }
 
         // insert code to ask the user for Card value and suit, create their card
         // and search the hand here. 
+        Scanner input = new Scanner(System.in);
+        Card card1 = new Card();
+        System.out.print("Enter Card value 1-13: ");
+        card1.setValue(input.nextInt());
+        System.out.print("Enter Card suit: ");
+        card1.setSuit(input.nextLine());
+        
+        for(int i = 0; i < hand.length; i++){
+            if(hand[i].getValue()== card1.getValue()&&hand[i].getSuit().equals(card1.getSuit())){
+                printInfo();
+            }
+        }
+        
         // Hint: You can ask for values 1 to 10, and then
         //       11 for jack, 12 for queen, etc. (remember arrays are 0-based though)
         //       1 for Hearts, 2 for Diamonds, etc. (remember arrays are 0-based though)
