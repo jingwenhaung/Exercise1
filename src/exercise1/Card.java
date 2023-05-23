@@ -9,8 +9,10 @@ package exercise1;
  * add your name as a modifier.
  * @author dancye
  * @author Paul Bonenfant May 2020
+ * @author Jingwen Huang May 23, 2023
  */
 public class Card {
+    //only add author name
 
    private String suit; //clubs, spades, diamonds, hearts
    private int value;//1-13
